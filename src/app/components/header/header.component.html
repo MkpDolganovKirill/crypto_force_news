@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="logo">
+    <img src="favicon.ico" alt="logo">
+    <h2 class="logo-title">CryptoDailyNews</h2>
+  </div>
+  <div class="menu-test">
+    <div [ngClass]="activeNumber == i ? 'item active': 'item'" *ngFor="let page of pages, let i = index"
+          (click)="activeNumber = i">
+      <p class="item-text">{{page}}</p>
+    </div>
+  </div>
+</div>

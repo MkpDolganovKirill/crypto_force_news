@@ -1,0 +1,62 @@
+@import "src/variables";
+
+.container {
+  display: flex;
+  height: 100%;
+
+  .logo {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    img {
+      height: 80%;
+    }
+
+    .logo-title {
+      color: $primary-color;
+      font-family: "Fira Code", serif;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+  }
+
+  .menu-test {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .item {
+      height: 100%;
+      width: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.5s;
+
+      .item-text {
+        font-size: 1.5rem;
+        font-weight: bold;
+        transition: 0.5s;
+      }
+    }
+
+    .item:hover {
+      box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+      color: $primary-color;
+      cursor: pointer;
+
+      .item-text {
+        font-size: 1.6rem;
+      }
+    }
+
+    .active {
+      box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+  }
+}
