@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   public pages = ['Новости', 'Крипта', 'Калькулятор', 'Обучение', 'О нас'];
+  public routes = ['news', 'rates' , 'calculator', 'education', 'about'];
   public activeNumber = 0;
 
   constructor() { }

@@ -1,0 +1,38 @@
+<div class="rates-container">
+
+  <mat-spinner *ngIf="!data.length"></mat-spinner>
+  <div class="table-container">
+    <table *ngIf="data.length" mat-table [dataSource]="data" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="Логотип">
+        <th mat-header-cell *matHeaderCellDef> logo </th>
+        <td mat-cell *matCellDef="let element">
+          <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/{{element.id}}.png" alt="logo">
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Название">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Цена">
+        <th mat-header-cell *matHeaderCellDef> Цена </th>
+        <td mat-cell *matCellDef="let element"> {{element.quote.USD.price.toFixed(2)}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="1 день">
+        <th mat-header-cell *matHeaderCellDef> 1 день % </th>
+        <td mat-cell *matCellDef="let element"> {{element.quote.USD.percent_change_1h.toFixed(3)}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="7 дней">
+        <th mat-header-cell *matHeaderCellDef> 7 дней % </th>
+        <td mat-cell *matCellDef="let element"> {{element.quote.USD.percent_change_7d.toFixed(3)}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

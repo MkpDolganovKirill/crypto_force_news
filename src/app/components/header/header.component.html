@@ -3,10 +3,13 @@
     <img src="favicon.ico" alt="logo">
     <h2 class="logo-title">CryptoDailyNews</h2>
   </div>
-  <div class="menu-test">
-    <div [ngClass]="activeNumber == i ? 'item active': 'item'" *ngFor="let page of pages, let i = index"
+  <nav class="menu-test">
+
+    <div class="item" *ngFor="let page of pages, let i = index"
+      routerLink="/{{routes[i]}}"
+         routerLinkActive="active"
           (click)="activeNumber = i">
       <p class="item-text">{{page}}</p>
     </div>
-  </div>
+  </nav>
 </div>
