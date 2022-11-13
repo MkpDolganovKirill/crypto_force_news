@@ -16,6 +16,18 @@
 
   table {
     width: 100%;
+
+    .negative,.ok {
+      font-weight: bold;
+    }
+
+    .negative {
+      color: red;
+    }
+
+    .ok {
+      color: green;
+    }
   }
 
   img {

@@ -14,6 +14,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from "@angular/material/table";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { AbsolutePipe } from './pipes/absolute.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
     CryptoNewsComponent,
     AboutComponent,
     CalculatorComponent,
-    EducationComponent
+    EducationComponent,
+    AbsolutePipe
   ],
   imports: [
     BrowserModule,

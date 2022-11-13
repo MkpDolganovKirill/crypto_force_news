@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { catchError, of } from "rxjs";
+import { StoreService } from "../../services/store.service";
 
 @Component({
   selector: 'app-crypto-rates',
@@ -9,25 +9,22 @@ import { catchError, of } from "rxjs";
 })
 export class CryptoRatesComponent implements OnInit {
   public data: any = [];
-  public displayedColumns = ['Логотип', 'Название', 'Цена', '1 день', '7 дней']
+  public displayedColumns = ['number', 'logo', 'price', '1_day_percent', '7_days_percent']
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private store: StoreService) {
   }
 
   ngOnInit(): void {
-    this.httpClient.get(`http://localhost:8080/get/list`)
-      .pipe(
-        catchError((err) => {
-          console.log(err);
-          return of(null);
-        })
-      )
-      .subscribe((result) => {
-        if (!result) return;
-        // @ts-ignore
-        this.data = result.data;
-        console.log(result);
-      })
+    this.store.cryptoList.subscribe(result => {
+      if (!result) return;
+      this.data = result.map((el: any, i: number) => {
+        return {
+          position: i + 1,
+          ...el,
+        }
+      });
+      console.log(this.data);
+    })
   }
 
 }

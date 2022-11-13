@@ -1,34 +1,51 @@
 <div class="rates-container">
 
-  <mat-spinner *ngIf="!data.length"></mat-spinner>
+  <mat-spinner *ngIf="!data?.length"></mat-spinner>
   <div class="table-container">
-    <table *ngIf="data.length" mat-table [dataSource]="data" class="mat-elevation-z8">
+    <table *ngIf="data?.length" mat-table [dataSource]="data" class="mat-elevation-z8">
 
-      <ng-container matColumnDef="Логотип">
-        <th mat-header-cell *matHeaderCellDef> logo </th>
+      <ng-container matColumnDef="number">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="logo">
+        <th mat-header-cell *matHeaderCellDef> Логотип </th>
         <td mat-cell *matCellDef="let element">
-          <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/{{element.id}}.png" alt="logo">
+          <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/{{element.cap_id}}.png" alt="logo">
         </td>
       </ng-container>
 
-      <ng-container matColumnDef="Название">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Название </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="Цена">
+      <ng-container matColumnDef="price">
         <th mat-header-cell *matHeaderCellDef> Цена </th>
-        <td mat-cell *matCellDef="let element"> {{element.quote.USD.price.toFixed(2)}} </td>
+        <td mat-cell
+            *matCellDef="let element"
+            [ngClass]="element.quote.USD.percent_change_1h < 0 ? 'negative' : 'ok'">
+          {{element.quote.USD.price.toFixed(2)}}
+        </td>
       </ng-container>
 
-      <ng-container matColumnDef="1 день">
+      <ng-container matColumnDef="1_day_percent">
         <th mat-header-cell *matHeaderCellDef> 1 день % </th>
-        <td mat-cell *matCellDef="let element"> {{element.quote.USD.percent_change_1h.toFixed(3)}} </td>
+        <td mat-cell
+            *matCellDef="let element"
+            [ngClass]="element.quote.USD.percent_change_1h < 0 ? 'negative' : 'ok'">
+          {{element.quote.USD.percent_change_1h.toFixed(3) | absolute}}
+        </td>
       </ng-container>
 
-      <ng-container matColumnDef="7 дней">
+      <ng-container matColumnDef="7_days_percent">
         <th mat-header-cell *matHeaderCellDef> 7 дней % </th>
-        <td mat-cell *matCellDef="let element"> {{element.quote.USD.percent_change_7d.toFixed(3)}} </td>
+        <td mat-cell
+            *matCellDef="let element"
+            [ngClass]="element.quote.USD.percent_change_7d < 0 ? 'negative' : 'ok'">
+          {{element.quote.USD.percent_change_7d.toFixed(3) | absolute}}
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
