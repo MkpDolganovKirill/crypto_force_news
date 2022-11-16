@@ -5,7 +5,7 @@ import { BehaviorSubject } from "rxjs";
   providedIn: 'root'
 })
 export class StoreService {
-  public cryptoList: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  public cryptoList = new BehaviorSubject<any>(null);
 
   constructor() { }
 }

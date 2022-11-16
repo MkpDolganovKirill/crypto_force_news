@@ -11,7 +11,7 @@ export class ApiService {
   constructor(private httpClient: HttpClient, private store: StoreService) { }
 
   getCryptoInfo() {
-    this.httpClient.get(`http://localhost:3000/crypto/top`, {
+    this.httpClient.get(`/crypto/top`, {
      params: {
        limit: 100
      }
