@@ -9,7 +9,7 @@ import { StoreService } from "../../services/store.service";
 })
 export class CryptoRatesComponent implements OnInit {
   public data: any = [];
-  public displayedColumns = ['number', 'logo', 'price', '1_day_percent', '7_days_percent']
+  public displayedColumns = ['number', 'name', 'price', '1_day_percent', '7_days_percent']
 
   constructor(private httpClient: HttpClient, private store: StoreService) {
   }

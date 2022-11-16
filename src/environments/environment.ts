@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backandLink: 'http://localhost:3000'
+  backendLink: 'http://192.168.1.136:3000'
 };
 
 /*
