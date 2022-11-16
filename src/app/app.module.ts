@@ -15,6 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from "@angular/material/table";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { AbsolutePipe } from './pipes/absolute.pipe';
+import { MatAutocompleteModule } from "@angular/material/autocomplete";
+import { MatInputModule } from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { AbsolutePipe } from './pipes/absolute.pipe';
     MatTableModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
+    MatAutocompleteModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
