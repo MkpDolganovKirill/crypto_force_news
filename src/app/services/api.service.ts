@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
-import { catchError, of } from "rxjs";
-import { HttpClient } from "@angular/common/http";
-import { StoreService } from "./store.service";
+import { HttpClient } from '@angular/common/http';
+import { catchError, of } from 'rxjs';
+import { StoreService } from '@services/store.service';
+import { CryptoItem } from '@pages/crypto-rates/interfaces';
 import { environment } from 'src/environments/environment';
-import { CryptoItem } from "../pages/crypto-rates/interfaces";
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-
-  constructor(private httpClient: HttpClient, private store: StoreService) { }
+  constructor(private httpClient: HttpClient, private store: StoreService) {}
 
   getCryptoInfo() {
-    this.httpClient.get<CryptoItem[]>(`${environment.backendLink}/crypto/top`, {
-     params: {
-       limit: 1000
-     }
-    })
+    this.httpClient
+      .get<CryptoItem[]>(`${environment.backendLink}/crypto/top`, {
+        params: {
+          limit: 1000,
+        },
+      })
       .pipe(
         catchError((err) => {
           console.log(err);
@@ -25,7 +25,7 @@ export class ApiService {
       )
       .subscribe((result) => {
         if (!result) return;
-        this.store.cryptoList.next(result);
-      })
+        this.store.cryptoList$.next(result);
+      });
   }
 }
