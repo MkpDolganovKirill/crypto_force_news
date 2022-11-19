@@ -6,6 +6,7 @@ import {
   IconLink,
   SearchField,
   TableColor,
+  TableLink,
   TableStyle,
   TableTitle,
 } from '@pages/crypto-rates/crypto-rates.enums';
@@ -56,5 +57,9 @@ export class CryptoRatesComponent implements OnInit {
 
   getColor(value: number): TableColor {
     return value < 0 ? TableColor.RED : TableColor.GREEN;
+  }
+
+  getImageLink(value: number): string {
+    return `${TableLink.COIN_IMAGE}${value}.png`;
   }
 }
