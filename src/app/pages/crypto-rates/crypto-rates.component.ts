@@ -1,30 +1,65 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { StoreService } from "../../services/store.service";
+import { MatTableDataSource } from '@angular/material/table';
+import { StoreService } from '@services/store.service';
+import {
+  DisplayColumn,
+  IconLink,
+  SearchField,
+  TableColor,
+  TableStyle,
+  TableTitle,
+} from '@pages/crypto-rates/crypto-rates.enums';
+import { CryptoItem } from './interfaces';
+import { COIN_IMAGE } from './crypto-rates.constants';
 
 @Component({
   selector: 'app-crypto-rates',
   templateUrl: './crypto-rates.component.html',
-  styleUrls: ['./crypto-rates.component.scss']
+  styleUrls: ['./crypto-rates.component.scss'],
 })
 export class CryptoRatesComponent implements OnInit {
-  public data: any = [];
-  public displayedColumns = ['number', 'logo', 'price', '1_day_percent', '7_days_percent']
+  public data = new MatTableDataSource<CryptoItem>();
+  public cryptoList: CryptoItem[] = [];
+  public displayedColumns = [
+    DisplayColumn.NUMBER,
+    DisplayColumn.NAME,
+    DisplayColumn.PRICE,
+    DisplayColumn.ONE_DAY,
+    DisplayColumn.SEVEN_DAY,
+    DisplayColumn.THIRTY_DAY,
+  ];
 
-  constructor(private httpClient: HttpClient, private store: StoreService) {
-  }
+  public searchField = SearchField;
+  public tableTitle = TableTitle;
+
+  constructor(private store: StoreService) {}
 
   ngOnInit(): void {
-    this.store.cryptoList.subscribe(result => {
+    this.store.cryptoList$.subscribe((result) => {
       if (!result) return;
-      this.data = result.map((el: any, i: number) => {
+      this.cryptoList = result.map((el: CryptoItem, i: number) => {
         return {
           position: i + 1,
           ...el,
-        }
+        };
       });
-      console.log(this.data);
-    })
+      this.data.data = this.cryptoList;
+    });
   }
 
+  arrowPath(value: number): IconLink {
+    return value < 0 ? IconLink.RED_ARROW : IconLink.GREEN_ARROW;
+  }
+
+  getRotate(value: number): TableStyle | '' {
+    return value < 0 ? '' : TableStyle.ROTATE;
+  }
+
+  getColor(value: number): TableColor {
+    return value < 0 ? TableColor.RED : TableColor.GREEN;
+  }
+
+  getImageLink(value: number): string {
+    return `${COIN_IMAGE}${value}.png`;
+  }
 }
