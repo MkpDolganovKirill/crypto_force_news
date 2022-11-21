@@ -4,6 +4,8 @@ import { catchError, of } from 'rxjs';
 import { StoreService } from '@services/store.service';
 import { CryptoItem } from '@pages/crypto-rates/interfaces';
 import { environment } from 'src/environments/environment';
+import { GET_CALL_LIMIT } from '@constants/api-service.constants';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -14,7 +16,7 @@ export class ApiService {
     this.httpClient
       .get<CryptoItem[]>(`${environment.backendLink}/crypto/top`, {
         params: {
-          limit: 1000,
+          limit: GET_CALL_LIMIT,
         },
       })
       .pipe(

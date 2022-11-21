@@ -6,11 +6,11 @@ import {
   IconLink,
   SearchField,
   TableColor,
-  TableLink,
   TableStyle,
   TableTitle,
 } from '@pages/crypto-rates/crypto-rates.enums';
 import { CryptoItem } from './interfaces';
+import { COIN_IMAGE } from './crypto-rates.constants';
 
 @Component({
   selector: 'app-crypto-rates',
@@ -60,6 +60,6 @@ export class CryptoRatesComponent implements OnInit {
   }
 
   getImageLink(value: number): string {
-    return `${TableLink.COIN_IMAGE}${value}.png`;
+    return `${COIN_IMAGE}${value}.png`;
   }
 }
