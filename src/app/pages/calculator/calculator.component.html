@@ -1,28 +1,40 @@
 <div class="container">
   <div class="content">
     <div class="head">
-      <h2 class="head-text">Крипта</h2>
-      <h2 class="head-text">Количество</h2>
-      <h2 class="head-text">Сумма</h2>
+      <h2 class="head-text">{{ headerText.PRICE }}</h2>
+      <h2 class="head-text">{{ headerText.COUNT }}</h2>
+      <h2 class="head-text">{{ headerText.SUM }}</h2>
     </div>
-    <div class="element" *ngFor="let elem of fieldsArray, let i = index">
-      <input class="input-crypto" type="number" [(ngModel)]="elem[0]" (change)="refreshValues()">
-      <input class="input-crypto" type="number" [(ngModel)]="elem[1]" (change)="refreshValues()">
-      <h2 class="head-text">{{elem[2].toFixed(2)}}$</h2>
+    <div class="element" *ngFor="let elem of fieldsArray; let i = index">
+      <input
+        class="input-crypto"
+        type="number"
+        [(ngModel)]="elem[0]"
+        (change)="refreshValues()"
+      />
+      <input
+        class="input-crypto"
+        type="number"
+        [(ngModel)]="elem[1]"
+        (change)="refreshValues()"
+      />
+      <h2 class="head-text">{{ elem[2].toFixed(2) }}$</h2>
     </div>
     <div class="head">
-      <h2 class="head-text">Среднее</h2>
-      <h2 class="head-text">Количество</h2>
-      <h2 class="head-text">Сумма</h2>
+      <h2 class="head-text">{{ headerText.AVERAGE }}</h2>
+      <h2 class="head-text">{{ headerText.COUNT }}</h2>
+      <h2 class="head-text">{{ headerText.SUM }}</h2>
     </div>
     <div class="element">
-      <h2 class="head-text">{{average.toFixed(2)}}$</h2>
-      <h2 class="head-text">{{totalCount.toFixed(2)}}$</h2>
-      <h2 class="head-text">{{totalSum.toFixed(2)}}$</h2>
+      <h2 class="head-text">{{ average.toFixed(2) }}$</h2>
+      <h2 class="head-text">{{ totalCount.toFixed(2) }}$</h2>
+      <h2 class="head-text">{{ totalSum.toFixed(2) }}$</h2>
     </div>
     <div class="controller">
-      <button (click)="removeLastField()">Удалить поле</button>
-      <button (click)="addNewField()">Добавить поле</button>
+      <button (click)="removeLastField()">
+        {{ tableButtonText.REMOVE_FIELD }}
+      </button>
+      <button (click)="addNewField()">{{ tableButtonText.ADD_FIELD }}</button>
     </div>
   </div>
 </div>
