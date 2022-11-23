@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { StoreService } from '@services/store.service';
+import { ResourceService } from '@services/resource.service';
 import {
   DisplayColumn,
   IconLink,
@@ -10,7 +11,6 @@ import {
   TableTitle,
 } from '@pages/crypto-rates/crypto-rates.enums';
 import { CryptoItem } from './interfaces';
-import { COIN_IMAGE } from './crypto-rates.constants';
 
 @Component({
   selector: 'app-crypto-rates',
@@ -32,7 +32,7 @@ export class CryptoRatesComponent implements OnInit {
   public searchField = SearchField;
   public tableTitle = TableTitle;
 
-  constructor(private store: StoreService) {}
+  constructor(private store: StoreService, public resource: ResourceService) {}
 
   ngOnInit(): void {
     this.store.cryptoList$.subscribe((result) => {
@@ -57,9 +57,5 @@ export class CryptoRatesComponent implements OnInit {
 
   getColor(value: number): TableColor {
     return value < 0 ? TableColor.RED : TableColor.GREEN;
-  }
-
-  getImageLink(value: number): string {
-    return `${COIN_IMAGE}${value}.png`;
   }
 }

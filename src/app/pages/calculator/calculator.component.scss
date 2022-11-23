@@ -1,26 +1,47 @@
+@import "variables";
+
 .container {
   width: 100%;
   height: 100%;
   padding: 30px;
-  background: #AFBBF2;
+  overflow: scroll;
+  background: $secondary-color;
 
   .content {
+    margin-bottom: 50px;
     display: flex;
     flex-direction: column;
     width: 100%;
 
-    .head,.element {
+    .mat-form-field-wrapper {
+      margin-top: 1.25rem;
+    }
+
+    .head,
+    .element {
       display: flex;
       justify-content: space-around;
-      border: 1px solid rgba(0, 0, 0, 0.64);
-      padding: 5px 0;
+      align-items: center;
+      border: 1px solid $grey-light;
+      padding: 10px 0;
       width: 100%;
 
-      h2, input {
+      h2,
+      .user-input {
+        vertical-align: middle;
         width: 30%;
         margin: 0;
         align-items: center;
         text-align: center;
+      }
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+
+      ::ng-deep .mat-form-field-wrapper {
+        margin-bottom: -1.25rem;
       }
     }
 

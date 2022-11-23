@@ -1,4 +1,4 @@
-enum HeaderText {
+enum HeadText {
   PRICE = 'Цена',
   COUNT = 'Количество',
   SUM = 'Сумма',
@@ -10,4 +10,8 @@ enum TableButtonText {
   ADD_FIELD = 'Добавить поле',
 }
 
-export { HeaderText, TableButtonText };
+enum LabelText {
+  SELECT_CRYPTOCURRENCY = 'Выберите криптовалюту',
+}
+
+export { HeadText, TableButtonText, LabelText };
