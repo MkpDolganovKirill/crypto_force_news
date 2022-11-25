@@ -1,1 +1,60 @@
-<p>calculator works!</p>
+<div class="container">
+  <div class="content">
+    <div class="head">
+      <h2 class="head-text">{{ headText.PRICE }}</h2>
+      <h2 class="head-text">{{ headText.COUNT }}</h2>
+      <h2 class="head-text">{{ headText.SUM }}</h2>
+    </div>
+    <div class="element" *ngFor="let elem of fieldsArray; let i = index">
+      <mat-form-field class="user-input" appearance="fill">
+        <mat-label>{{ inputNames[i] || priceInputLabel }}</mat-label>
+        <input matInput aria-label="State" [matAutocomplete]="auto" />
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option
+            (onSelectionChange)="selectCoin(i, item.name, $event)"
+            *ngFor="let item of cryptoList"
+            [value]="convertStringToNumber(item.quote.USD.price.toFixed(2))"
+            [(ngModel)]="elem[0]"
+            ngDefaultControl
+          >
+            <img [src]="resource.getImageLink(item.cap_id)" height="20" />
+            <span>{{ item.name }}</span
+            >{{ searchField.SEPARATOR }}
+            <small>
+              {{ searchField.PRICE }}: ${{ item.quote.USD.price.toFixed(2) }}
+            </small>
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-form-field class="user-input" appearance="fill">
+        <input
+          matInput
+          class="input-crypto"
+          type="number"
+          [(ngModel)]="elem[1]"
+          (change)="refreshValues()"
+          [pattern]="numberPattern"
+        />
+      </mat-form-field>
+      <h2 class="head-text">${{ elem[2].toFixed(2) | number: ".2" }}</h2>
+    </div>
+    <div class="head">
+      <h2 class="head-text">{{ headText.AVERAGE }}</h2>
+      <h2 class="head-text">{{ headText.COUNT }}</h2>
+      <h2 class="head-text">{{ headText.SUM }}</h2>
+    </div>
+    <div class="element">
+      <h2 class="head-text">${{ average.toFixed(2) }}</h2>
+      <h2 class="head-text">{{ totalCount | number: ".2" }}</h2>
+      <h2 class="head-text">${{ totalSum.toFixed(2) | number: ".2" }}</h2>
+    </div>
+    <div class="controller">
+      <button mat-raised-button color="primary" (click)="addNewField()">
+        {{ tableButtonText.ADD_FIELD }}
+      </button>
+      <button mat-raised-button color="warn" (click)="removeLastField()">
+        {{ tableButtonText.REMOVE_FIELD }}
+      </button>
+    </div>
+  </div>
+</div>

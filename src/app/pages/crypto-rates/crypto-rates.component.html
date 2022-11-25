@@ -5,10 +5,10 @@
       <input matInput aria-label="State" [matAutocomplete]="auto" />
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option *ngFor="let item of cryptoList" [value]="item.name">
-          <img [src]="getImageLink(item.cap_id)" height="20" />
+          <img [src]="resource.getImageLink(item.cap_id)" height="20" />
           <span>{{ item.name }}</span> {{ searchField.SEPARATOR }}
           <small>
-            {{ searchField.PRICE }}: {{ item.quote.USD.price + "$" }}
+            {{ searchField.PRICE }}: {{ item.quote.USD.price.toFixed(2) }}$
           </small>
         </mat-option>
       </mat-autocomplete>
@@ -34,7 +34,7 @@
         <td mat-cell *matCellDef="let element">
           <div class="content">
             <img
-              [src]="getImageLink(element.cap_id)"
+              [src]="resource.getImageLink(element.cap_id)"
               [alt]="tableTitle.ALT_LOGO"
             />
             <span class="name">{{ element.name }}</span>
