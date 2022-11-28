@@ -1,0 +1,105 @@
+.content {
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  color: #fff;
+  .title {
+    width: 100%;
+    text-align: center;
+    h1 {
+      font-weight: 900;
+    }
+  }
+  .video-block {
+    .upper-separator {
+      width: 100%;
+    }
+    .list {
+      justify-content: center;
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      .video {
+        margin: 15px 20px;
+        border-radius: 10px;
+        border: 1px solid #d9d9d9;
+        width: 29%;
+        height: 150px;
+        iframe {
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+        }
+      }
+    }
+    .bottom-separator {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .content {
+    .video-block {
+      .list {
+        .video {
+          margin: 10px 15px;
+          width: 25%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .content {
+    .video-block {
+      .list {
+        .video {
+          width: 40%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .content {
+    overflow: scroll;
+    .video-block {
+      .list {
+        .video {
+          margin: 10px;
+          width: 80%;
+          height: 250px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 670px) {
+  .content {
+    .video-block {
+      .list {
+        .video {
+          width: 100%;
+          height: 200px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .content {
+    padding: 10px;
+    .video-block {
+      .list {
+        .video {
+          height: 100%;
+        }
+      }
+    }
+  }
+}
