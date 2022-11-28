@@ -1,3 +1,41 @@
 <div class="container">
-  <div class="menu"></div>
+  <div class="menu">
+    <!-- <div class="auth-buttons">
+      <div class="sign-in-btn">
+        <button mat-raised-button [routerLink]="'/signIn'">
+          {{ pageName.SIGN_IN }}
+        </button>
+      </div>
+      <div class="sign-up-btn">
+        <button mat-raised-button [routerLink]="'/signUp'">
+          {{ pageName.SIGN_UP }}
+        </button>
+      </div>
+    </div> -->
+    <div class="account">
+      <div class="avatar-preview">
+        <img src="assets/images/avatar.jpeg" alt="avatar" />
+      </div>
+      <div class="username">
+        <h2>Посетитель</h2>
+        <div class="activity-status">
+          <div class="green-dot"></div>
+          online
+        </div>
+      </div>
+    </div>
+
+    <div class="top-coins">
+      <div *ngIf="cryptoList.length" class="top-coins-block">
+        <div class="title">Топ 10 криптовалют на сегодня</div>
+        <div class="list">
+          <div *ngFor="let item of cryptoList" class="coin">
+            <img [src]="resource.getImageLink(item.cap_id)" height="20" />
+            <span>{{ item.name }}</span>
+            <small> Цена: {{ item.quote.USD.price.toFixed(2) }}$ </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

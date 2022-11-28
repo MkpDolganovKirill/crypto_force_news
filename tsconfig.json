@@ -9,7 +9,8 @@
       "@services/*": ["src/app/services/*"],
       "@pipes/*": ["src/app/pipes/*"],
       "@material/*": ["src/app/material/*"],
-      "@constants/*": ["src/app/constants/*"]
+      "@constants/*": ["src/app/constants/*"],
+      "@enums/*": ["src/app/enums/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
