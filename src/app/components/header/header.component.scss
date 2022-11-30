@@ -19,6 +19,7 @@
     .logo-title {
       color: $primary-color;
       font-family: "Fira Code", serif;
+      font-weight: bold;
       text-align: center;
       margin-bottom: 5px;
     }
@@ -47,7 +48,8 @@
     }
 
     .item:hover {
-      box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+      box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset,
+        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
       color: $primary-color;
       cursor: pointer;
 
@@ -57,7 +59,8 @@
     }
 
     .active {
-      box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+      box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset,
+        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     }
   }
 }

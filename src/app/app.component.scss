@@ -1,4 +1,4 @@
-@import "src/variables";
+@import "variables";
 
 .app-component {
   width: 100%;
@@ -27,7 +27,6 @@
       width: 80%;
       height: 100%;
       background-color: $primary-color;
-      opacity: 0.8;
     }
   }
 }
