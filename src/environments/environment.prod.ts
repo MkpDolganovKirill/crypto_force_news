@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  backandLink: 'https://api.cryptodailynews.ru'
+  backendLink: 'https://api.cryptodailynews.ru'
 };
