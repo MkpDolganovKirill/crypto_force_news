@@ -16,6 +16,7 @@ import { HeaderComponent } from '@components/header/header.component';
 import { LeftSideBarComponent } from '@components/left-side-bar/left-side-bar.component';
 
 import { AbsolutePipe } from '@pipes/absolute.pipe';
+import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { AbsolutePipe } from '@pipes/absolute.pipe';
     BrowserAnimationsModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
