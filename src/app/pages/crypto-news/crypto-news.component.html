@@ -5,17 +5,28 @@
   <div class="news-wrapper">
     <div class="news-block">
       <div class="date-picker">
-        <div class="date-active">
-          <h1>Сегодня</h1>
+        <div [ngClass]="getLabelClassName(0)">
+          <h1 (click)="changeSelection(0)">Сегодня</h1>
         </div>
-        <div class="date"><h1>Вчера</h1></div>
-        <div class="date"><h1>{{date2 | getDate}}</h1></div>
-        <div class="date"><h1>{{date3 | getDate}}</h1></div>
-        <div class="date"><h1>{{date4 | getDate}}</h1></div>
-        <div class="date"><h1>{{date5 | getDate}}</h1></div>
+        <div [ngClass]="getLabelClassName(1)">
+          <h1 (click)="changeSelection(1)">Вчера</h1>
+        </div>
+        <div [ngClass]="getLabelClassName(2)">
+          <h1 (click)="changeSelection(2)">{{date2 | getDate}}</h1>
+        </div>
+        <div [ngClass]="getLabelClassName(3)">
+          <h1 (click)="changeSelection(3)">{{date3 | getDate}}</h1>
+        </div>
+        <div [ngClass]="getLabelClassName(4)">
+          <h1 (click)="changeSelection(4)">{{date4 | getDate}}</h1>
+        </div>
+        <div [ngClass]="getLabelClassName(5)">
+          <h1 (click)="changeSelection(5)">{{date5 | getDate}}</h1>
+        </div>
       </div>
       <div class="separator"><hr /></div>
-      <div class="news">
+      <div class="news" *ngIf="selectedDate !== 0"><h1>На этот день новостей нет</h1></div>
+      <div class="news" *ngIf="selectedDate === 0">
         <div class="right-side">
           <div class="item">
             <div class="news-preview">
