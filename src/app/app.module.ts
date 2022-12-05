@@ -17,6 +17,7 @@ import { LeftSideBarComponent } from '@components/left-side-bar/left-side-bar.co
 
 import { AbsolutePipe } from '@pipes/absolute.pipe';
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
+import { GetDatePipe } from './pipes/get-date.pipe';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { HashLocationStrategy, LocationStrategy } from "@angular/common";
     CalculatorComponent,
     EducationComponent,
     AbsolutePipe,
+    GetDatePipe,
   ],
   imports: [
     BrowserModule,

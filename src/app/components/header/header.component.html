@@ -14,4 +14,20 @@
       <p class="item-text">{{ page }}</p>
     </div>
   </nav>
+  <div class="hamburger-icon" (click)="isOpenMobileMenu = !isOpenMobileMenu">
+    <div [ngClass]="isOpenMobileMenu ? 'open bar1' : 'bar1'"></div>
+    <div [ngClass]="isOpenMobileMenu ? 'open bar2' : 'bar2'"></div>
+    <div [ngClass]="isOpenMobileMenu ? 'open bar3' : 'bar3'"></div>
+    <nav [ngClass]="isOpenMobileMenu ? 'open mobile-menu' : 'mobile-menu'">
+      <div
+        class="item-mobile"
+        *ngFor="let page of pages; let i = index"
+        routerLink="/{{ routes[i] }}"
+        routerLinkActive="active"
+        (click)="activeNumber = i"
+      >
+        <p class="item-text">{{ page }}</p>
+      </div>
+    </nav>
+  </div>
 </div>
