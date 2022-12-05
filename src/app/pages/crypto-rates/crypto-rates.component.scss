@@ -6,8 +6,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 30px;
+  //padding: 30px;
   box-sizing: border-box;
+
+  table {
+    min-width: 600px;
+  }
 
   .example-form {
     background: white;
@@ -33,8 +37,9 @@
   .table-container {
     position: relative;
     min-height: 200px;
-    height: 82vh;
+    height: 95vh;
     overflow: auto;
+    //display: none;
 
     .spinner {
       position: absolute;

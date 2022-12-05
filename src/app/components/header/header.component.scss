@@ -19,6 +19,7 @@
     .logo-title {
       color: $primary-color;
       font-family: "Fira Code", serif;
+      font-weight: bold;
       text-align: center;
       margin-bottom: 5px;
     }
@@ -60,6 +61,94 @@
     .active {
       box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset,
         rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+  }
+}
+
+.hamburger-icon {
+  margin: auto 10px;
+  display: none;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.open.bar1 {
+  transform: rotate(-45deg) translate(-6px, 6px) !important;
+  -webkit-transform-origin: rotate(-45deg) translate(-6px, 6px) !important;
+}
+
+.open.bar2 {
+  opacity: 0 !important;
+}
+
+.open.bar3 {
+  transform: rotate(45deg) translate(-6px, -8px) !important;
+  -webkit-transform-origin: rotate(45deg) translate(-6px, -8px) !important;
+}
+
+.open.mobile-menu {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  transition: 0.4s;
+}
+
+.mobile-menu {
+  background-color: $primary-color;
+  color: white;
+  opacity: 0.9;
+  display: none;
+  position: absolute;
+  top: 5%;
+  left: 0;
+  height: calc(100vh - 5%);
+  width: 100%;
+  transition: 0.4s;
+  z-index: 150;
+}
+
+@media (max-device-width: 1280px) {
+  .item-text {
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    transition: 0.5s !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-device-width: 1000px) or (max-width: 1000px) {
+  .menu-test {
+    display: none !important;
+  }
+  .container {
+    justify-content: space-between !important;
+
+    .logo {
+      width: fit-content !important;
+      margin-left: 5px !important;
+    }
+
+    .logo-title {
+      margin: 0 !important;
+    }
+  }
+
+  .hamburger-icon {
+    display: block;
+
+    p {
+      text-align: center;
+      margin-top: 30px !important;
+      font-size: 1.5rem !important;
+      cursor: pointer;
     }
   }
 }
