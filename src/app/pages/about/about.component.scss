@@ -32,3 +32,9 @@
     }
   }
 }
+
+@media (max-device-width: 500px) or (max-width: 500px) {
+  .content {
+    padding: 20px !important;
+  }
+}

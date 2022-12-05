@@ -29,7 +29,6 @@
       justify-content: center;
       .avatar-preview {
         margin-top: 60px;
-        margin-left: 20px;
         width: 60px;
         height: 60px;
         img {
@@ -84,5 +83,14 @@
         }
       }
     }
+  }
+}
+
+@media (max-device-width: 1280px) {
+  .title {
+    text-align: center !important;
+  }
+  .list {
+    margin-left: 10px !important;
   }
 }

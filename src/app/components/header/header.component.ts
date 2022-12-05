@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
   ];
   public title = PageList.TITLE;
   public activeNumber = 0;
+  public isOpenMobileMenu = false;
 
   constructor() {}
 
