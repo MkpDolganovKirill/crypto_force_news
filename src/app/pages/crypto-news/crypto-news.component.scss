@@ -17,6 +17,7 @@
   .news-wrapper {
     display: flex;
     justify-content: center;
+    width: 95%;
     .news-block {
       margin-top: 30px;
       border-radius: 10px;
@@ -58,6 +59,14 @@
         width: 100%;
         height: calc(100% - 40px);
         display: flex;
+
+        h1 {
+          color: white;
+          width: 100%;
+          text-align: center;
+          height: auto;
+        }
+
         .right-side {
           margin-top: 20px;
           width: 50%;

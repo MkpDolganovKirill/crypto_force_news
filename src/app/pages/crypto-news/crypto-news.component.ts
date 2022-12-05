@@ -10,10 +10,17 @@ export class CryptoNewsComponent implements OnInit {
   public date3 = new Date((new Date()).setDate((new Date()).getDate() - 3));
   public date4 = new Date((new Date()).setDate((new Date()).getDate() - 4));
   public date5 = new Date((new Date()).setDate((new Date()).getDate() - 5));
+  public selectedDate = 0;
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.date3);
+  ngOnInit(): void {}
+
+  getLabelClassName(index: number): string {
+    return this.selectedDate === index ? 'date-active' : 'date';
+  }
+
+  changeSelection(index: number) {
+    this.selectedDate = index;
   }
 }
