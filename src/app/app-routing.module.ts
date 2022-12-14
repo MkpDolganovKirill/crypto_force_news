@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CryptoNewsComponent } from "./pages/crypto-news/crypto-news.component";
-import { CryptoRatesComponent } from "./pages/crypto-rates/crypto-rates.component";
-import { CalculatorComponent } from "./pages/calculator/calculator.component";
-import { EducationComponent } from "./pages/education/education.component";
-import { AboutComponent } from "./pages/about/about.component";
+
+import { AboutComponent } from '@pages/about/about.component';
+import { CalculatorComponent } from '@pages/calculator/calculator.component';
+import { CryptoNewsComponent } from '@pages/crypto-news/crypto-news.component';
+import { CryptoRatesComponent } from '@pages/crypto-rates/crypto-rates.component';
+import { EducationComponent } from '@pages/education/education.component';
 
 const routes: Routes = [
   {
@@ -18,11 +19,11 @@ const routes: Routes = [
   },
   {
     path: 'rates',
-    component: CryptoRatesComponent
+    component: CryptoRatesComponent,
   },
   {
     path: 'calculator',
-    component: CalculatorComponent
+    component: CalculatorComponent,
   },
   {
     path: 'education',
@@ -36,6 +37,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

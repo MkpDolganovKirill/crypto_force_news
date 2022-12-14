@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
 import { PageList, RouteList } from './header.enums';
 
 @Component({
@@ -6,7 +7,7 @@ import { PageList, RouteList } from './header.enums';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   public pages: PageList[] = [
     PageList.NEWS,
     PageList.CRYPTO,
@@ -24,8 +25,4 @@ export class HeaderComponent implements OnInit {
   public title = PageList.TITLE;
   public activeNumber = 0;
   public isOpenMobileMenu = false;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

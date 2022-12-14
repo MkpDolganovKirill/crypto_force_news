@@ -5,8 +5,6 @@ import { COIN_IMAGE } from '@constants/resource-service.constants';
   providedIn: 'root',
 })
 export class ResourceService {
-  constructor() {}
-
   getImageLink(value: number): string {
     return `${COIN_IMAGE}${value}.png`;
   }

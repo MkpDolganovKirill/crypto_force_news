@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CryptoItem } from '@pages/crypto-rates/interfaces';
 import { AuthDialogComponent } from '@components/auth-dialog/auth-dialog.component';
-import { ResourceService } from '@services/resource.service';
-import { StoreService } from '@services/store.service';
-import { ApiService } from '@services/api.service';
-import { AuthService } from '@services/auth.service';
 import { AuthPageName } from '@enums/authPage.enums';
 import { PageName } from '@enums/pageName.enums';
+import { CryptoItem } from '@pages/crypto-rates/interfaces';
+import { AuthService } from '@services/auth.service';
+import { ResourceService } from '@services/resource.service';
+import { StoreService } from '@services/store.service';
 
 @Component({
   selector: 'app-left-side-bar',
@@ -23,7 +22,6 @@ export class LeftSideBarComponent implements OnInit {
 
   constructor(
     private store: StoreService,
-    private api: ApiService,
     private dialog: MatDialog,
     private auth: AuthService,
     public resource: ResourceService
@@ -45,6 +43,6 @@ export class LeftSideBarComponent implements OnInit {
   }
 
   openAuthDialog(type: AuthPageName): void {
-    const dialogRef = this.dialog.open(AuthDialogComponent, { data: { type } });
+    this.dialog.open(AuthDialogComponent, { data: { type } });
   }
 }

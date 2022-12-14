@@ -7,18 +7,19 @@ import {
   Validators,
 } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { catchError, of } from 'rxjs';
+import { DB_CONNECTION_ERROR } from '@constants/snackbar-messages.constants';
+import { AuthPageName, LocalStorageValue } from '@enums/authPage.enums';
+import { PageName } from '@enums/pageName.enums';
 import { AuthService } from '@services/auth.service';
 import { SnackbarService } from '@services/snackbar.service';
-import { AuthDialogData } from './auth-dialog.interface';
+import { catchError, of } from 'rxjs';
+
 import {
   AuthFormControlName,
   AuthSnackbarMessage,
   DialogInputPlaceholder,
 } from './auth-dialog.enums';
-import { AuthPageName, LocalStorageValue } from '@enums/authPage.enums';
-import { PageName } from '@enums/pageName.enums';
-import { DB_CONNECTION_ERROR } from '@constants/snackbar-messages.constants';
+import { AuthDialogData } from './auth-dialog.interface';
 
 @Component({
   selector: 'app-auth-dialog',

@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { SIGNIN_ROUTE, SIGNUP_ROUTE } from '@constants/auth-service.constants';
 import { LocalStorageValue } from '@enums/authPage.enums';
 import { Auth, AuthResponse } from '@interfaces/auth.interface';
-import { SIGNIN_ROUTE, SIGNUP_ROUTE } from '@constants/auth-service.constants';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',

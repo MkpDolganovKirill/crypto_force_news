@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatOptionSelectionChange } from '@angular/material/core';
-import { ResourceService } from '@services/resource.service';
-import { StoreService } from '@services/store.service';
 import { SearchField } from '@pages/crypto-rates/crypto-rates.enums';
 import { CryptoItem } from '@pages/crypto-rates/interfaces';
-import { HeadText, LabelText, TableButtonText } from './calculator.enums';
+import { ResourceService } from '@services/resource.service';
+import { StoreService } from '@services/store.service';
+
 import { NUMBER_PATTERN } from './calculator.constants';
+import { HeadText, LabelText, TableButtonText } from './calculator.enums';
 
 @Component({
   selector: 'app-calculator',
