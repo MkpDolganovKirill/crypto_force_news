@@ -11,9 +11,14 @@ import { catchError, of } from 'rxjs';
 import { AuthService } from '@services/auth.service';
 import { SnackbarService } from '@services/snackbar.service';
 import { AuthDialogData } from './auth-dialog.interface';
-import { DialogInputPlaceholder } from './auth-dialog.enums';
-import { AuthPageName } from '@enums/authPage.enums';
+import {
+  AuthFormControlName,
+  AuthSnackbarMessage,
+  DialogInputPlaceholder,
+} from './auth-dialog.enums';
+import { AuthPageName, LocalStorageValue } from '@enums/authPage.enums';
 import { PageName } from '@enums/pageName.enums';
+import { DB_CONNECTION_ERROR } from '@constants/snackbar-messages.constants';
 
 @Component({
   selector: 'app-auth-dialog',
@@ -44,14 +49,18 @@ export class AuthDialogComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.data.type === AuthPageName.SIGN_IN)
-      this.authFormGroup.removeControl('passwordRepeat');
+      this.authFormGroup.removeControl(AuthFormControlName.PASSWORD_REPEAT);
   }
 
   private checkPasswords(group: AbstractControl): ValidationErrors | null {
-    const password = group.get('password')?.value;
-    const passwordRepeat = group.get('passwordRepeat')?.value;
+    const password = group.get(AuthFormControlName.PASSWORD)?.value;
+    const passwordRepeat = group.get(
+      AuthFormControlName.PASSWORD_REPEAT
+    )?.value;
     if (password !== passwordRepeat) {
-      group.get('passwordRepeat')?.setErrors({ notMatch: true });
+      group
+        .get(AuthFormControlName.PASSWORD_REPEAT)
+        ?.setErrors({ notMatch: true });
     }
     return null;
   }
@@ -73,7 +82,7 @@ export class AuthDialogComponent implements OnInit {
         .pipe(
           catchError((err) => {
             const errMsg = !err.status
-              ? 'DB connection error!'
+              ? DB_CONNECTION_ERROR
               : err.error.message;
             this.snackbar.openError(errMsg);
             return of(null);
@@ -81,11 +90,14 @@ export class AuthDialogComponent implements OnInit {
         )
         .subscribe((resp) => {
           if (!resp) return;
-          localStorage.setItem('accessToken', resp.accesstoken);
-          localStorage.setItem('refreshToken', resp.refreshtoken);
-          localStorage.setItem('userName', resp.username);
+          localStorage.setItem(LocalStorageValue.ACCESSTOKEN, resp.accesstoken);
+          localStorage.setItem(
+            LocalStorageValue.REFRESHTOKEN,
+            resp.refreshtoken
+          );
+          localStorage.setItem(LocalStorageValue.USERNAME, resp.username);
           this.auth.isUserAuthenticated.next(true);
-          this.snackbar.openSuccess('Успешный вход!');
+          this.snackbar.openSuccess(AuthSnackbarMessage.SUCCESS_SIGNIN);
         });
       return;
     }
@@ -94,20 +106,18 @@ export class AuthDialogComponent implements OnInit {
       .signUp({ login, password })
       .pipe(
         catchError((err) => {
-          const errMsg = !err.status
-            ? 'DB connection error!'
-            : err.error.message;
+          const errMsg = !err.status ? DB_CONNECTION_ERROR : err.error.message;
           this.snackbar.openError(errMsg);
           return of(null);
         })
       )
       .subscribe((resp) => {
         if (!resp) return;
-        localStorage.setItem('accessToken', resp.accesstoken);
-        localStorage.setItem('refreshToken', resp.refreshtoken);
-        localStorage.setItem('userName', resp.username);
+        localStorage.setItem(LocalStorageValue.ACCESSTOKEN, resp.accesstoken);
+        localStorage.setItem(LocalStorageValue.REFRESHTOKEN, resp.refreshtoken);
+        localStorage.setItem(LocalStorageValue.USERNAME, resp.username);
         this.auth.isUserAuthenticated.next(true);
-        this.snackbar.openSuccess('Успешная регистрация!');
+        this.snackbar.openSuccess(AuthSnackbarMessage.SUCCESS_SIGNUP);
       });
   }
 }

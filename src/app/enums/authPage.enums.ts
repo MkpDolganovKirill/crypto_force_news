@@ -3,4 +3,10 @@ enum AuthPageName {
   SIGN_UP = 'sign-up',
 }
 
-export { AuthPageName };
+enum LocalStorageValue {
+  USERNAME = 'userName',
+  ACCESSTOKEN = 'accessToken',
+  REFRESHTOKEN = 'refreshToken',
+}
+
+export { AuthPageName, LocalStorageValue };

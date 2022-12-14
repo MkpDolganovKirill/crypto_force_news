@@ -6,4 +6,15 @@ enum DialogInputPlaceholder {
   SUBMIT_SIGNUP = 'Зарегистрироваться',
 }
 
-export { DialogInputPlaceholder };
+enum AuthFormControlName {
+  LOGIN = 'login',
+  PASSWORD = 'password',
+  PASSWORD_REPEAT = 'passwordRepeat',
+}
+
+enum AuthSnackbarMessage {
+  SUCCESS_SIGNIN = 'Успешный вход!',
+  SUCCESS_SIGNUP = 'Успешная регистрация!',
+}
+
+export { DialogInputPlaceholder, AuthFormControlName, AuthSnackbarMessage };
