@@ -1,4 +1,7 @@
 <div class="container">
+  <div class="logo">
+    <h2>CryptoDailyNews</h2>
+  </div>
   <div class="menu">
     <div *ngIf="!isUserAuthenticated" class="auth-buttons">
       <div class="sign-in-btn">
@@ -12,6 +15,7 @@
         </button>
       </div>
     </div>
+
     <div *ngIf="isUserAuthenticated" class="account">
       <div class="avatar-preview">
         <img src="assets/images/avatar.jpeg" alt="avatar" />
@@ -21,15 +25,16 @@
         <div class="activity-status">
           <div *ngIf="cryptoList.length" class="online-status">
             <div class="green-dot"></div>
-            online
+            <span>online</span>
           </div>
           <div *ngIf="!cryptoList.length" class="offline-status">
             <div class="red-dot"></div>
-            offline
+            <span>offline</span>
           </div>
         </div>
       </div>
     </div>
+    <hr class="separator" />
 
     <div class="top-coins">
       <div *ngIf="cryptoList.length" class="top-coins-block">
@@ -38,7 +43,7 @@
           <div *ngFor="let item of cryptoList" class="coin">
             <img [src]="resource.getImageLink(item.cap_id)" height="20" />
             <span>{{ item.name }}</span>
-            <small> Цена: {{ item.quote.USD.price.toFixed(2) }}$ </small>
+            <small>{{ item.quote.USD.price.toFixed(2) }}$ </small>
           </div>
         </div>
       </div>

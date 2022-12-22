@@ -1,32 +1,36 @@
 @import "variables";
 
+.mat-option {
+  display: flex;
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
 .container {
   width: 100%;
   height: 100%;
   padding: 30px;
   overflow: auto;
   background: $primary-color;
-
   .content {
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
     width: 100%;
-      //color: white;
-
     .mat-form-field-wrapper {
       margin-top: 1.25rem;
     }
-
     .head,
     .element {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      border: 1px solid white;
+      border: 2px solid $white-transparent50;
+      border-radius: 10px;
       padding: 10px 0;
       width: 100%;
-
       h2,
       .user-input {
         vertical-align: middle;
@@ -35,40 +39,28 @@
         align-items: center;
         text-align: center;
       }
-
       h2 {
         color: white;
       }
-
       .user-input {
         background-color: white;
       }
-
       input::-webkit-outer-spin-button,
       input::-webkit-inner-spin-button {
         -webkit-appearance: none;
       }
-
       ::ng-deep .mat-form-field-wrapper {
         margin-bottom: -1.25rem;
       }
     }
-
-    .controller {
-      height: 50px;
-      display: flex;
-      gap: 10px;
-      padding: 5px 0;
-
-      button {
-        padding: 0 5px;
-      }
-    }
   }
-}
-
-@media (max-device-width: 1000px) or (max-width: 1000px) {
-  .container {
-    padding: 0 !important;
+  .controller {
+    height: 50px;
+    display: flex;
+    gap: 10px;
+    padding: 5px 0;
+    button {
+      padding: 0 5px;
+    }
   }
 }

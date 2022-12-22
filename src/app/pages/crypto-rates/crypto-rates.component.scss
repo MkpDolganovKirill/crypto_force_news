@@ -1,46 +1,37 @@
 @import "variables";
 
 .rates-container {
+  margin-top: 6px;
   width: 100%;
-  max-height: 100%;
+  max-height: calc(100% - 65px);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  //padding: 30px;
   box-sizing: border-box;
-
   table {
     min-width: 600px;
   }
-
   .example-form {
     background: white;
-
     .example-full-width {
       width: 40%;
-
       ::ng-deep .mat-option-text {
         display: flex;
         align-items: center;
       }
     }
   }
-
   ::ng-deep .mat-form-field-wrapper {
     margin-bottom: -1.25em;
   }
-
   .mat-form-field-wrapper {
     padding: 0 !important;
   }
-
   .table-container {
     position: relative;
     min-height: 200px;
     height: 95vh;
     overflow: auto;
-    //display: none;
-
     .spinner {
       position: absolute;
       top: 0;
@@ -50,57 +41,46 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(0, 0, 0, 0.15);
+      background: $black-transparent;
       .mat-spinner {
         top: 50px;
       }
     }
   }
-
   table {
     width: 100%;
     height: 88vh;
-
     .label {
       font-weight: 600 !important;
     }
-
     .negative,
     .ok {
       font-weight: bold;
     }
-
     .negative {
       color: red;
     }
-
     .rotate {
       transform: rotate(180deg);
     }
-
-     .content {
-       align-items: center;
-       display: flex;
-       gap: 10px;
-     }
-
+    .content {
+      align-items: center;
+      display: flex;
+      gap: 10px;
+    }
     .dynamic-content {
       font-weight: 500;
-
       img {
         height: 10px;
       }
     }
-
     .ok {
       color: green;
     }
   }
-
   img {
     width: 30px;
   }
-
   .item {
     display: flex;
     align-items: center;
@@ -108,7 +88,6 @@
     background-color: $secondary-color;
     border-radius: 15px;
     padding-left: 20px;
-
     img {
       width: 30px;
     }

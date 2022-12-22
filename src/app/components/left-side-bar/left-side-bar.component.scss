@@ -6,75 +6,75 @@
   display: flex;
   flex-direction: column;
   background-color: $secondary-color;
-  border-right: 1px solid $grey-light;
-
   .logo {
-    width: 100%;
-    height: 5%;
-    background-color: $secondary-color;
-    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5.5vh;
+    max-height: 120px;
+    min-height: 50px;
+    color: white;
+    h2 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
   }
-
   .menu {
     width: 100%;
-    height: 100%;
-    background-color: $primary-color;
-    border-radius: 50px 0 0 0;
-    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px,
-      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
+    height: calc(100% - 55px);
+    background-color: $secondary-color;
     .auth-buttons {
-      margin-top: 50px;
+      margin-top: 20px;
+      margin-bottom: 10px;
       display: flex;
       width: 100%;
       justify-content: space-around;
       .sign-in-btn {
-        margin-bottom: 5px;
+        margin-bottom: 1vh;
         button {
-          width: 80px;
-          height: 40px;
-          background: linear-gradient(#2b2b2b, #3e3e3e);
+          width: 70px;
+          height: 35px;
+          background: linear-gradient($grey-darker, $grey-lighter);
           border-radius: 20px;
           border: none;
-          color: #fff;
-          font-weight: 600;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+          color: white;
+          font-weight: bold;
+          box-shadow: 0 0 10px $black-transparent;
           transition: 0.3s;
         }
-
         button:hover {
-          box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+          box-shadow: 0 0 1vw $white-transparent;
         }
         button:active {
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 5px 10px $black-transparent;
         }
       }
       .sign-up-btn {
         button {
           width: 120px;
-          height: 40px;
-          background: linear-gradient(#2b2b2b, #3e3e3e);
+          height: 35px;
+          background: linear-gradient($grey-darker, $grey-lighter);
           border-radius: 20px;
           border: none;
-          color: #fff;
-          font-weight: 600;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+          color: white;
+          font-weight: bold;
+          box-shadow: 0 0 10px $black-transparent;
           transition: 0.3s;
         }
         button:hover {
-          box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+          box-shadow: 0 0 1vw $white-transparent;
         }
         button:active {
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 5px 10px $black-transparent;
         }
       }
     }
     .account {
       display: flex;
-      justify-content: center;
+      align-items: center;
+      height: 120px;
+      width: 100%;
       .avatar-preview {
-        margin-top: 60px;
         width: 60px;
         height: 60px;
         img {
@@ -84,17 +84,18 @@
         }
       }
       .username {
-        margin-top: 65px;
         margin-left: 15px;
         h2 {
-          font-weight: normal;
+          font-weight: medium;
+          font-family: "Oxanium", cursive;
+          font-size: 1.2rem;
           margin: 0;
         }
-        color: #fff;
+        color: white;
         .activity-status {
           display: flex;
           align-items: center;
-          color: #c2c2c2;
+          color: $grey-lightest;
           .online-status {
             display: flex;
             align-items: center;
@@ -104,6 +105,10 @@
               height: 10px;
               background-color: green;
               border-radius: 50%;
+            }
+            span {
+              font-family: "DM Sans", sans-serif;
+              font-size: 0.8rem;
             }
           }
           .offline-status {
@@ -116,29 +121,49 @@
               background-color: red;
               border-radius: 50%;
             }
+            span {
+              font-family: "DM Sans", sans-serif;
+              font-size: 1vw;
+            }
           }
         }
       }
     }
+    .separator {
+      border: 1px solid $primary-color;
+    }
     .top-coins {
+      width: 100%;
       display: flex;
       justify-content: center;
-      margin-top: 50px;
-      color: #fff;
+      margin-top: 60px;
+      color: white;
       .top-coins-block {
         .title {
-          margin-bottom: 10px;
+          font-size: 1rem;
         }
         .list {
           .coin {
+            min-height: 2vh;
             margin-top: 10px;
             display: flex;
             align-items: center;
             img {
-              margin-right: 10px;
+              height: 3vh;
+              width: 1.5vw;
+              border-radius: 50%;
+              margin-right: 0.5vw;
             }
             span {
-              margin-right: 10px;
+              font-weight: lighter;
+              font-size: 1.5rem;
+              margin-right: 1vw;
+            }
+            small {
+              text-align: center;
+              align-items: center;
+              font-size: 1rem;
+              font-weight: medium;
             }
           }
         }
@@ -147,11 +172,226 @@
   }
 }
 
-@media (max-device-width: 1280px) {
-  .title {
-    text-align: center !important;
+@media screen and (min-width: 1660px) {
+  .container {
+    .menu {
+      .account {
+        margin-left: 15%;
+      }
+      .top-coins {
+        margin-top: 40px;
+        .top-coins-block {
+          .title {
+            font-size: 1rem;
+          }
+          .list {
+            .coin {
+              img {
+                width: 30px;
+                height: 30px;
+              }
+              span {
+                font-size: 1.3rem;
+              }
+              small {
+                font-size: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
   }
-  .list {
-    margin-left: 10px !important;
+}
+
+@media screen and (max-width: 1280px) {
+  .container {
+    .logo {
+      h2 {
+        font-size: 1.2rem;
+      }
+    }
+    .menu {
+      .account {
+        .username {
+          h2 {
+            font-size: 1rem;
+          }
+          .activity-status {
+            .online-status {
+              span {
+                font-size: 0.8rem;
+              }
+            }
+          }
+        }
+      }
+      .top-coins {
+        .top-coins-block {
+          .list {
+            .coin {
+              img {
+                width: 30px;
+                height: 30px;
+              }
+              span {
+                font-size: 1rem;
+              }
+              small {
+                font-size: 0.8rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .container {
+    .menu {
+      .top-coins {
+        margin-top: 30px;
+        .top-coins-block {
+          .title {
+            font-size: 0.8rem;
+          }
+          .list {
+            .coin {
+              img {
+                width: 25px;
+                height: 25px;
+              }
+              span {
+                font-size: 0.8rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .container {
+    .logo {
+      h2 {
+        font-size: 1rem;
+      }
+    }
+    .menu {
+      .account {
+        .avatar-preview {
+          width: 40px;
+          height: 40px;
+        }
+        .username {
+          h2 {
+            font-size: 1rem;
+          }
+        }
+      }
+      .top-coins {
+        .top-coins-block {
+          .list {
+            .coin {
+              margin-top: 10px;
+              img {
+                width: 20px;
+                height: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    .menu {
+      .top-coins {
+        .top-coins-block {
+          .title {
+            font-size: 0.6rem;
+          }
+          .list {
+            .coin {
+              img {
+                width: 20px;
+                height: 20px;
+              }
+              span {
+                font-size: 0.8rem;
+              }
+              small {
+                font-size: 0.6rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .container {
+    .menu {
+      .auth-buttons {
+        .sign-in-btn {
+          button {
+            width: 55px;
+            font-size: 0.75rem;
+          }
+        }
+        .sign-up-btn {
+          button {
+            width: 95px;
+            font-size: 0.75rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .container {
+    .menu {
+      .auth-buttons {
+        display: block;
+        .sign-in-btn {
+          display: flex;
+          justify-content: center;
+          button {
+            width: calc(95% - 20px);
+          }
+        }
+        .sign-up-btn {
+          display: flex;
+          justify-content: center;
+          button {
+            width: calc(95% - 20px);
+          }
+        }
+      }
+      .top-coins {
+        margin-top: 10px;
+        .top-coins-block {
+          .title {
+            font-size: 0.5rem;
+          }
+          .list {
+            .coin {
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+    }
   }
 }

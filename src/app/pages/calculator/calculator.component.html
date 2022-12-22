@@ -18,11 +18,9 @@
             ngDefaultControl
           >
             <img [src]="resource.getImageLink(item.cap_id)" height="20" />
-            <span>{{ item.name }}</span
-            >{{ searchField.SEPARATOR }}
-            <small>
-              {{ searchField.PRICE }}: ${{ item.quote.USD.price.toFixed(2) }}
-            </small>
+            <span> {{ item.name }}</span>
+            {{ searchField.SEPARATOR }}
+            <small>${{ item.quote.USD.price.toFixed(2) }} </small>
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
@@ -48,13 +46,13 @@
       <h2 class="head-text">{{ totalCount | number : ".2" }}</h2>
       <h2 class="head-text">${{ totalSum.toFixed(2) | number : ".2" }}</h2>
     </div>
-    <div class="controller">
-      <button mat-raised-button color="primary" (click)="addNewField()">
-        {{ tableButtonText.ADD_FIELD }}
-      </button>
-      <button mat-raised-button color="warn" (click)="removeLastField()">
-        {{ tableButtonText.REMOVE_FIELD }}
-      </button>
-    </div>
+  </div>
+  <div class="controller">
+    <button mat-raised-button color="primary" (click)="addNewField()">
+      {{ tableButtonText.ADD_FIELD }}
+    </button>
+    <button mat-raised-button color="warn" (click)="removeLastField()">
+      {{ tableButtonText.REMOVE_FIELD }}
+    </button>
   </div>
 </div>

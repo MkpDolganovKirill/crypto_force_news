@@ -1,66 +1,42 @@
-@import "src/variables";
+@import "variables";
 
 .container {
   display: flex;
+  justify-content: center;
   height: 100%;
-
-  .logo {
-    width: 20%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-
-    img {
-      height: 80%;
-    }
-
-    .logo-title {
-      color: $primary-color;
-      font-family: "Fira Code", serif;
-      font-weight: bold;
-      text-align: center;
-      margin-bottom: 5px;
-    }
-  }
-
-  .menu-test {
-    width: 80%;
+  .menu {
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-
     .item {
       height: 100%;
       width: 20%;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: 0.5s;
-
       .item-text {
         font-size: 1.5rem;
-        font-weight: bold;
-        transition: 0.5s;
+        font-weight: medium;
         margin: 0;
       }
     }
-
     .item:hover {
-      box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset,
-        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-      color: $primary-color;
       cursor: pointer;
-
-      .item-text {
-        font-size: 1.6rem;
-      }
     }
-
     .active {
-      box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset,
-        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+      position: relative;
+      font-weight: bold;
+    }
+    .active:after {
+      content: "";
+      display: block;
+      width: 8vw;
+      height: 8px;
+      background-color: $primary-color;
+      position: absolute;
+      top: 90%;
+      border-radius: 10px;
     }
   }
 }
@@ -71,7 +47,9 @@
   cursor: pointer;
 }
 
-.bar1, .bar2, .bar3 {
+.bar1,
+.bar2,
+.bar3 {
   width: 35px;
   height: 3px;
   background-color: white;
@@ -115,12 +93,58 @@
   z-index: 150;
 }
 
-@media (max-device-width: 1280px) {
+@media screen and (min-width: 1660px) {
+  .container {
+    .menu {
+      .active:after {
+        width: 200px;
+        height: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .item-text {
+    font-size: 1.2rem !important;
+  }
+}
+
+@media screen and (max-width: 860px) {
   .item-text {
     font-size: 1rem !important;
-    font-weight: bold !important;
-    transition: 0.5s !important;
-    margin: 0 !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .item-text {
+    font-size: 0.8rem !important;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .container {
+    .menu {
+      .active:after {
+        width: 15vw;
+        height: 6px;
+      }
+    }
+  }
+  .item-text {
+    font-size: 0.8rem !important;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .item-text {
+    font-size: 0.6rem !important;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .item-text {
+    font-size: 0.5rem !important;
   }
 }
 
@@ -130,20 +154,16 @@
   }
   .container {
     justify-content: space-between !important;
-
     .logo {
       width: fit-content !important;
       margin-left: 5px !important;
     }
-
     .logo-title {
       margin: 0 !important;
     }
   }
-
   .hamburger-icon {
     display: block;
-
     p {
       text-align: center;
       margin-top: 30px !important;
