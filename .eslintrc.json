@@ -1,0 +1,130 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "node_modules"
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "env": {
+    "es6": true
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "plugins": [
+        "rxjs",
+        "@typescript-eslint",
+        "prettier"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:prettier/recommended",
+        "plugin:import/recommended",
+        "plugin:import/typescript",
+        "prettier"
+      ],
+      "rules": {
+        "prettier/prettier": "error",
+        "comma-dangle": "off",
+        "@typescript-eslint/comma-dangle": "off",
+        "linebreak-style": [
+          "error",
+          "unix"
+        ],
+        "quotes": [
+          "error",
+          "single",
+          {
+            "avoidEscape": true
+          }
+        ],
+        "no-var": "error",
+        // note you must disable the base rule as it can report incorrect errors
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "error",
+        // note you must disable the base rule as it can report incorrect errors
+        "no-empty-function": "off",
+        "@typescript-eslint/no-empty-function": [
+          "error"
+        ],
+        "no-use-before-define": "warn",
+        "no-useless-constructor": "off",
+        "no-console": [
+          "error",
+          {
+            "allow": [
+              "warn",
+              "error"
+            ]
+          }
+        ],
+        "@angular-eslint/no-input-rename": "warn",
+        "import/extensions": "off",
+        "import/prefer-default-export": "off",
+        "import/no-unresolved": "off",
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              "internal",
+              [
+                "index",
+                "sibling",
+                "parent"
+              ],
+              [
+                "object"
+              ]
+            ],
+            "newlines-between": "always-and-inside-groups",
+            "pathGroupsExcludedImportTypes": [
+              "builtin"
+            ],
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
+        ],
+        "rxjs/no-nested-subscribe": "error",
+        "@typescript-eslint/no-inferrable-types": "error",
+        "@typescript-eslint/array-type": "error",
+        "@typescript-eslint/triple-slash-reference": "error"
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {
+        "@angular-eslint/template/no-call-expression": "warn"
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "excludedFiles": [
+        "*inline-template-*.component.html"
+      ],
+      "extends": [
+        "plugin:prettier/recommended"
+      ]
+    }
+  ]
+}

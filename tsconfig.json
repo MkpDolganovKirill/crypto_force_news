@@ -10,7 +10,8 @@
       "@pipes/*": ["src/app/pipes/*"],
       "@material/*": ["src/app/material/*"],
       "@constants/*": ["src/app/constants/*"],
-      "@enums/*": ["src/app/enums/*"]
+      "@enums/*": ["src/app/enums/*"],
+      "@interfaces/*": ["src/app/interfaces/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

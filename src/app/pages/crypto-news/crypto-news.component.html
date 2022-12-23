@@ -12,20 +12,22 @@
           <h1 (click)="changeSelection(1)">Вчера</h1>
         </div>
         <div [ngClass]="getLabelClassName(2)">
-          <h1 (click)="changeSelection(2)">{{date2 | getDate}}</h1>
+          <h1 (click)="changeSelection(2)">{{ date2 | getDate }}</h1>
         </div>
         <div [ngClass]="getLabelClassName(3)">
-          <h1 (click)="changeSelection(3)">{{date3 | getDate}}</h1>
+          <h1 (click)="changeSelection(3)">{{ date3 | getDate }}</h1>
         </div>
         <div [ngClass]="getLabelClassName(4)">
-          <h1 (click)="changeSelection(4)">{{date4 | getDate}}</h1>
+          <h1 (click)="changeSelection(4)">{{ date4 | getDate }}</h1>
         </div>
         <div [ngClass]="getLabelClassName(5)">
-          <h1 (click)="changeSelection(5)">{{date5 | getDate}}</h1>
+          <h1 (click)="changeSelection(5)">{{ date5 | getDate }}</h1>
         </div>
       </div>
       <div class="separator"><hr /></div>
-      <div class="news" *ngIf="selectedDate !== 0"><h1>На этот день новостей нет</h1></div>
+      <div class="news" *ngIf="selectedDate !== 0">
+        <h1>На этот день новостей нет</h1>
+      </div>
       <div class="news" *ngIf="selectedDate === 0">
         <div class="right-side">
           <div class="item">
@@ -83,9 +85,7 @@
         <img src="assets/images/binance.png" alt="" />
       </div>
       <div class="new-description">
-        <p>
-          Криптовалютная самостоятельная защита на фоне падения биржи FTX
-        </p>
+        <p>Криптовалютная самостоятельная защита на фоне падения биржи FTX</p>
       </div>
     </div>
     <div class="new">
@@ -94,8 +94,8 @@
       </div>
       <div class="new-description">
         <p>
-          Первопроходец в Америке: Binance.US подаст заявку на
-          приобретение Voyager
+          Первопроходец в Америке: Binance.US подаст заявку на приобретение
+          Voyager
         </p>
       </div>
     </div>
@@ -115,9 +115,7 @@
         <img src="assets/images/busd.jpeg" alt="" />
       </div>
       <div class="new-description">
-        <p>
-          Binance нацеливает фонд восстановления $1 млрд для криптоактивов
-        </p>
+        <p>Binance нацеливает фонд восстановления $1 млрд для криптоактивов</p>
       </div>
     </div>
   </div>

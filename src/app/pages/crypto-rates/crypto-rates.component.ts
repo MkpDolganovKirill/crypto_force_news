@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { StoreService } from '@services/store.service';
-import { ResourceService } from '@services/resource.service';
 import {
   DisplayColumn,
   IconLink,
@@ -10,6 +8,9 @@ import {
   TableStyle,
   TableTitle,
 } from '@pages/crypto-rates/crypto-rates.enums';
+import { ResourceService } from '@services/resource.service';
+import { StoreService } from '@services/store.service';
+
 import { CryptoItem } from './interfaces';
 
 @Component({
