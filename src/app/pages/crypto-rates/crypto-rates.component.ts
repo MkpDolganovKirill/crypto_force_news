@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { GET_CALL_LIMIT } from '@constants/api-service.constants';
 import {
   DisplayColumn,
   IconLink,
@@ -18,7 +20,7 @@ import { CryptoItem } from './interfaces';
   templateUrl: './crypto-rates.component.html',
   styleUrls: ['./crypto-rates.component.scss'],
 })
-export class CryptoRatesComponent implements OnInit {
+export class CryptoRatesComponent implements OnInit, AfterViewInit {
   public data = new MatTableDataSource<CryptoItem>();
   public cryptoList: CryptoItem[] = [];
   public displayedColumns = [
@@ -33,6 +35,10 @@ export class CryptoRatesComponent implements OnInit {
   public searchField = SearchField;
   public tableTitle = TableTitle;
 
+  public resultsLength = 0;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+
   constructor(private store: StoreService, public resource: ResourceService) {}
 
   ngOnInit(): void {
@@ -44,8 +50,14 @@ export class CryptoRatesComponent implements OnInit {
           ...el,
         };
       });
+      this.resultsLength = GET_CALL_LIMIT;
       this.data.data = this.cryptoList;
     });
+  }
+
+  ngAfterViewInit(): void {
+    if (!this.paginator) return;
+    this.data.paginator = this.paginator;
   }
 
   arrowPath(value: number): IconLink {
