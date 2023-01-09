@@ -1,9 +1,25 @@
 @import "variables";
 
 .rates-container {
+  .page-title {
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-bottom: 20px;
+    h1 {
+      font-size: 2.5vw;
+      font-weight: bold;
+    }
+    z-index: 1;
+  }
+
+  .page-title:before {
+    width: 65vw;
+  }
+
   margin-top: 6px;
   width: 100%;
-  max-height: calc(100% - 65px);
+  max-height: 94.5vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,7 +57,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: $black-transparent;
+      background: $primary-color;
       .mat-spinner {
         top: 50px;
       }
@@ -49,7 +65,7 @@
   }
   table {
     width: 100%;
-    height: 88vh;
+    height: 95%;
     .negative,
     .ok {
       font-weight: bold;
@@ -77,6 +93,7 @@
   }
   img {
     width: 30px;
+    border-radius: 50%;
   }
   .item {
     display: flex;

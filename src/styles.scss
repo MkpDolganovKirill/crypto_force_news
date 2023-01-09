@@ -19,10 +19,48 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: $secondary-color;
 }
 
 mat-dialog-container {
   border-radius: 30px !important;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5) !important;
-  background-color: #1d1d1d !important;
+  box-shadow: 0 0 20px $black-transparent !important;
+  background-color: $secondary-color !important;
+}
+
+.mat-header-row {
+  background-color: $primary-color;
+  .mat-header-cell {
+    color: white;
+  }
+}
+
+.mat-row {
+  background: $primary-color;
+}
+
+.mat-cell {
+  color: white !important;
+  border-bottom-color: $secondary-color !important;
+}
+
+.mat-paginator-container {
+  background: $primary-color;
+  color: white;
+}
+
+.mat-paginator-page-size-select {
+  .mat-select-value {
+    color: white;
+  }
+}
+
+.page-title:before {
+  content: "";
+  min-height: 20px;
+  background: linear-gradient(to left, $grey-lighter 50%, $grey-darker 50%);
+  position: absolute;
+  margin-top: 15px;
+  border-radius: 20px;
+  z-index: -1;
 }

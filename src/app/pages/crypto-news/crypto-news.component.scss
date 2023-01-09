@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  .title {
+  .page-title {
     margin-top: 70px;
     display: flex;
     justify-content: center;
@@ -12,10 +12,17 @@
     color: white;
     text-align: center;
     h1 {
-      font-size: 30px;
+      font-size: 3vw;
       font-weight: 600;
     }
+    z-index: 1;
   }
+
+  .page-title:before {
+    width: 45vw;
+    margin-top: 5px;
+  }
+
   .news-wrapper {
     display: flex;
     justify-content: center;
@@ -180,17 +187,92 @@
   }
 }
 
-@media (max-device-width: 1280px) or (max-width: 1280px) {
-  .title {
-    margin-top: 20px !important;
-    h1 {
-      font-size: 25px !important;
+@media screen and (min-width: 1660px) {
+  .content {
+    .page-title {
+      h1 {
+        font-size: 2vw;
+      }
     }
+    .page-title:before {
+      max-width: 30vw;
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .content {
+    .page-title {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+    .page-title:before {
+      width: 100%;
+      max-width: 30vw;
+    }
+  }
+  .item-text {
+    font-size: 1.2rem !important;
   }
   .news-wrapper {
     display: none !important;
   }
   .mobile-news {
     display: flex !important;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .content {
+    .page-title {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+    .page-title:before {
+      width: 8vw;
+    }
+  }
+  .item-text {
+    font-size: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    padding: 20px !important;
+    .page-title:before {
+      min-width: 70px;
+    }
+  }
+  .item-text {
+    font-size: 0.8rem !important;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .container {
+    .menu {
+      .active:after {
+        width: 15vw;
+        height: 6px;
+      }
+    }
+  }
+  .item-text {
+    font-size: 0.8rem !important;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .item-text {
+    font-size: 0.6rem !important;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .item-text {
+    font-size: 0.5rem !important;
   }
 }
