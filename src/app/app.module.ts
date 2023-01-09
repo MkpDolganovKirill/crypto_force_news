@@ -15,6 +15,7 @@ import { CryptoRatesComponent } from '@pages/crypto-rates/crypto-rates.component
 import { EducationComponent } from '@pages/education/education.component';
 import { AbsolutePipe } from '@pipes/absolute.pipe';
 import { ArrowPathPipe } from '@pipes/arrow-path.pipe';
+import { FavouriteIconPipe } from '@pipes/favourite-icon.pipe';
 import { FixedPipe } from '@pipes/fixed.pipe';
 import { GetDatePipe } from '@pipes/get-date.pipe';
 import { RotatePipe } from '@pipes/rotate.pipe';
@@ -42,6 +43,7 @@ import { AppComponent } from './app.component';
     ArrowPathPipe,
     RotatePipe,
     ToNumberPipe,
+    FavouriteIconPipe,
   ],
   imports: [
     BrowserModule,

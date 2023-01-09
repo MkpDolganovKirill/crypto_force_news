@@ -10,6 +10,7 @@ enum DisplayColumn {
   ONE_DAY = '1_day_percent',
   SEVEN_DAY = '7_days_percent',
   THIRTY_DAY = '30_days_percent',
+  ACTIONS = 'actions',
 }
 
 enum SearchField {
@@ -25,6 +26,7 @@ enum TableTitle {
   ONE_DAY = '1 день %',
   SEVEN_DAYS = '7 дней %',
   THIRTY_DAYS = '30 дней %',
+  ACTIONS = 'Действия',
   ALT_ARROW = 'arrow',
   ALT_LOGO = 'logo',
 }
