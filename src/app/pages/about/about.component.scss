@@ -2,16 +2,24 @@
 
 .content {
   color: white;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   padding: 40px;
   background-color: $primary-color;
-  .title {
-    text-align: center;
+  .page-title {
+    display: flex;
+    justify-content: center;
+    color: white;
     margin-bottom: 20px;
     h1 {
-      font-weight: 900;
-      margin: 0;
+      font-size: 2rem;
+      font-weight: bold;
     }
+    z-index: 1;
+  }
+  .page-title:before {
+    width: 10vw;
   }
   .main-text {
     width: 100%;
@@ -34,8 +42,70 @@
   }
 }
 
-@media (max-device-width: 500px) or (max-width: 500px) {
+@media screen and (min-width: 1660px) {
+  .content {
+    .page-title:before {
+      width: 6vw;
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .item-text {
+    font-size: 1.2rem !important;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .content {
+    .page-title {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+    .page-title:before {
+      width: 8vw;
+    }
+  }
+  .item-text {
+    font-size: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .content {
     padding: 20px !important;
+    .page-title:before {
+      min-width: 70px;
+    }
+  }
+  .item-text {
+    font-size: 0.8rem !important;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .container {
+    .menu {
+      .active:after {
+        width: 15vw;
+        height: 6px;
+      }
+    }
+  }
+  .item-text {
+    font-size: 0.8rem !important;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .item-text {
+    font-size: 0.6rem !important;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .item-text {
+    font-size: 0.5rem !important;
   }
 }

@@ -18,7 +18,7 @@ export class AuthService {
     const accessToken = localStorage.getItem(LocalStorageValue.ACCESSTOKEN);
     const refreshToken = localStorage.getItem(LocalStorageValue.REFRESHTOKEN);
     const userName = localStorage.getItem(LocalStorageValue.USERNAME);
-    return accessToken && refreshToken && userName ? true : false;
+    return !!(accessToken && refreshToken && userName);
   }
 
   signUp(body: Auth): Observable<AuthResponse> {

@@ -7,4 +7,5 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class StoreService {
   public cryptoList$ = new BehaviorSubject<CryptoItem[]>([]);
+  public favouriteCoinList$ = new BehaviorSubject<string[]>([]);
 }
