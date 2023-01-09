@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'absolute',
 })
 export class AbsolutePipe implements PipeTransform {
-  transform(value: unknown): unknown {
+  transform(value: unknown): number {
     return Math.abs(<number>value);
   }
 }

@@ -4,13 +4,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { GET_CALL_LIMIT } from '@constants/api-service.constants';
 import {
   DisplayColumn,
-  IconLink,
   SearchField,
-  TableColor,
-  TableStyle,
   TableTitle,
 } from '@pages/crypto-rates/crypto-rates.enums';
-import { ResourceService } from '@services/resource.service';
 import { StoreService } from '@services/store.service';
 
 import { CryptoItem } from './interfaces';
@@ -39,7 +35,7 @@ export class CryptoRatesComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
-  constructor(private store: StoreService, public resource: ResourceService) {}
+  constructor(private store: StoreService) {}
 
   ngOnInit(): void {
     this.store.cryptoList$.subscribe((result) => {
@@ -58,17 +54,5 @@ export class CryptoRatesComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     if (!this.paginator) return;
     this.data.paginator = this.paginator;
-  }
-
-  arrowPath(value: number): IconLink {
-    return value < 0 ? IconLink.RED_ARROW : IconLink.GREEN_ARROW;
-  }
-
-  getRotate(value: number): TableStyle | '' {
-    return value < 0 ? '' : TableStyle.ROTATE;
-  }
-
-  getColor(value: number): TableColor {
-    return value < 0 ? TableColor.RED : TableColor.GREEN;
   }
 }

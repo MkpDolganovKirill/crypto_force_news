@@ -19,6 +19,20 @@
     flex-direction: column;
     border-radius: 10px;
     width: 100%;
+    .page-title {
+      display: flex;
+      justify-content: center;
+      color: white;
+      margin-bottom: 20px;
+      h1 {
+        font-size: 3vw;
+        font-weight: bold;
+      }
+      z-index: 1;
+    }
+    .page-title:before {
+      width: 60vw;
+    }
     .mat-form-field-wrapper {
       margin-top: 1.25rem;
     }
@@ -54,6 +68,7 @@
       }
     }
   }
+
   .controller {
     height: 50px;
     display: flex;
@@ -62,5 +77,127 @@
     button {
       padding: 0 5px;
     }
+  }
+}
+
+@media screen and (min-width: 1660px) {
+  .container {
+    .content {
+      .page-title {
+        h1 {
+          font-size: 2vw;
+        }
+      }
+      .page-title:before {
+        width: 40vw;
+        max-width: 900px;
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .item-text {
+    font-size: 1.2rem !important;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .container {
+    .content {
+      .page-title {
+        h1 {
+          font-size: 1.3rem;
+        }
+      }
+      .page-title:before {
+        width: 45vw;
+        margin-top: 10px;
+      }
+    }
+    .item-text {
+      font-size: 1rem !important;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    .content {
+      padding: 20px !important;
+      .page-title {
+        h1 {
+          font-size: 1rem;
+        }
+      }
+      .page-title:before {
+        width: 40vw;
+      }
+    }
+    .item-text {
+      font-size: 0.8rem !important;
+    }
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .container {
+    .content {
+      .page-title {
+        h1 {
+          font-size: 0.8rem;
+        }
+      }
+      .page-title:before {
+        width: 55vw;
+      }
+    }
+    .menu {
+      .active:after {
+        width: 15vw;
+        height: 6px;
+      }
+    }
+  }
+  .item-text {
+    font-size: 0.8rem !important;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .container {
+    .content {
+      .page-title {
+        h1 {
+          font-size: 0.6rem;
+        }
+      }
+      .page-title:before {
+        width: 55vw;
+      }
+    }
+  }
+  .item-text {
+    font-size: 0.6rem !important;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .container {
+    .content {
+      padding: 5px !important;
+      .page-title {
+        h1 {
+          font-size: 8px;
+        }
+      }
+      .page-title:before {
+        width: 55vw;
+      }
+    }
+  }
+  .item-text {
+    font-size: 0.5rem !important;
   }
 }

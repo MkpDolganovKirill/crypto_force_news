@@ -5,7 +5,6 @@ import { AuthPageName } from '@enums/authPage.enums';
 import { PageName } from '@enums/pageName.enums';
 import { CryptoItem } from '@pages/crypto-rates/interfaces';
 import { AuthService } from '@services/auth.service';
-import { ResourceService } from '@services/resource.service';
 import { StoreService } from '@services/store.service';
 
 @Component({
@@ -23,8 +22,7 @@ export class LeftSideBarComponent implements OnInit {
   constructor(
     private store: StoreService,
     private dialog: MatDialog,
-    private auth: AuthService,
-    public resource: ResourceService
+    private auth: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -37,8 +35,7 @@ export class LeftSideBarComponent implements OnInit {
     }
     this.store.cryptoList$.subscribe((resp) => {
       if (!resp) return;
-      this.cryptoList = resp;
-      this.cryptoList = this.cryptoList.slice(0, 10);
+      this.cryptoList = resp.slice(0, 10);
     });
   }
 

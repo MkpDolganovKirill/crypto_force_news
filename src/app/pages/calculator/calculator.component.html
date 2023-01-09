@@ -1,5 +1,8 @@
 <div class="container">
   <div class="content">
+    <div class="page-title">
+      <h1>Калькулятор усреднения криптовалют</h1>
+    </div>
     <div class="head">
       <h2 class="head-text">{{ headText.PRICE }}</h2>
       <h2 class="head-text">{{ headText.COUNT }}</h2>
@@ -13,14 +16,19 @@
           <mat-option
             (onSelectionChange)="selectCoin(i, item.name, $event)"
             *ngFor="let item of cryptoList"
-            [value]="convertStringToNumber(item.quote.USD.price.toFixed(2))"
+            [value]="item.quote.USD.price | fixed : 2 | toNumber"
             [(ngModel)]="elem[0]"
             ngDefaultControl
           >
-            <img [src]="resource.getImageLink(item.cap_id)" height="20" />
+            <img
+              [src]="item.cap_id | toLink"
+              alt="coin logo"
+              height="20"
+              draggable="false"
+            />
             <span> {{ item.name }}</span>
             {{ searchField.SEPARATOR }}
-            <small>${{ item.quote.USD.price.toFixed(2) }} </small>
+            <small>${{ item.quote.USD.price | fixed : 2 }} </small>
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
@@ -34,7 +42,7 @@
           [pattern]="numberPattern"
         />
       </mat-form-field>
-      <h2 class="head-text">${{ elem[2].toFixed(2) | number : ".2" }}</h2>
+      <h2 class="head-text">${{ elem[2] | fixed : 2 | number : ".2" }}</h2>
     </div>
     <div class="head">
       <h2 class="head-text">{{ headText.AVERAGE }}</h2>
@@ -42,9 +50,9 @@
       <h2 class="head-text">{{ headText.SUM }}</h2>
     </div>
     <div class="element">
-      <h2 class="head-text">${{ average.toFixed(2) }}</h2>
+      <h2 class="head-text">${{ average | fixed : 2 }}</h2>
       <h2 class="head-text">{{ totalCount | number : ".2" }}</h2>
-      <h2 class="head-text">${{ totalSum.toFixed(2) | number : ".2" }}</h2>
+      <h2 class="head-text">${{ totalSum | fixed : 2 | number : ".2" }}</h2>
     </div>
   </div>
   <div class="controller">
