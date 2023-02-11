@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatOptionSelectionChange } from '@angular/material/core';
 import { SearchField } from '@pages/crypto-rates/crypto-rates.enums';
 import { CryptoItem } from '@pages/crypto-rates/interfaces';
-import { ResourceService } from '@services/resource.service';
 import { StoreService } from '@services/store.service';
 
 import { NUMBER_PATTERN } from './calculator.constants';
@@ -30,7 +29,7 @@ export class CalculatorComponent implements OnInit {
   public tableButtonText = TableButtonText;
   public priceInputLabel = LabelText.SELECT_CRYPTOCURRENCY;
 
-  constructor(private store: StoreService, public resource: ResourceService) {}
+  constructor(private store: StoreService) {}
 
   ngOnInit(): void {
     this.store.cryptoList$.subscribe((resp) => (this.cryptoList = resp));
@@ -74,9 +73,5 @@ export class CalculatorComponent implements OnInit {
     this.inputNames[index] = name;
     this.fieldsArray[index][0] = Number(value.source.value.toFixed(2));
     this.refreshValues();
-  }
-
-  convertStringToNumber(value: string): number {
-    return Number(value);
   }
 }

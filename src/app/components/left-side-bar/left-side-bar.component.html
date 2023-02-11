@@ -18,7 +18,11 @@
 
     <div *ngIf="isUserAuthenticated" class="account">
       <div class="avatar-preview">
-        <img src="assets/images/avatar.jpeg" alt="avatar" />
+        <img
+          src="assets/images/avatar.jpeg"
+          alt="avatar icon"
+          draggable="false"
+        />
       </div>
       <div class="username">
         <h2>{{ userName }}</h2>
@@ -41,9 +45,14 @@
         <div class="title">Топ 10 криптовалют на сегодня</div>
         <div class="list">
           <div *ngFor="let item of cryptoList" class="coin">
-            <img [src]="resource.getImageLink(item.cap_id)" height="20" />
+            <img
+              [src]="item.cap_id | toLink"
+              alt="coin logo"
+              height="20"
+              draggable="false"
+            />
             <span>{{ item.name }}</span>
-            <small>{{ item.quote.USD.price.toFixed(2) }}$ </small>
+            <small>{{ item.quote.USD.price | fixed : 2 }}$ </small>
           </div>
         </div>
       </div>
