@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendLink: 'https://api.cryptodailynews.ru'
+  backendLink: 'http://localhost:3000'
 };
 
 /*

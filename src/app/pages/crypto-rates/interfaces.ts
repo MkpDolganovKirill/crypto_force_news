@@ -33,6 +33,6 @@ export interface CryptoItem {
   tags: string[];
   total_supply: number;
   updatedAt: string;
-  __V: number;
+  __v: number;
   _id: string;
 }

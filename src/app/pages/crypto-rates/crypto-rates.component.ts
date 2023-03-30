@@ -18,7 +18,7 @@ import { CryptoItem } from './interfaces';
   styleUrls: ['./crypto-rates.component.scss'],
 })
 export class CryptoRatesComponent implements OnInit {
-  public data = new MatTableDataSource<CryptoItem>();
+  public data: MatTableDataSource<CryptoItem> = new MatTableDataSource();
   public cryptoList: CryptoItem[] = [];
   public displayedColumns = [
     DisplayColumn.NUMBER,
@@ -32,11 +32,10 @@ export class CryptoRatesComponent implements OnInit {
   public searchField = SearchField;
   public tableTitle = TableTitle;
 
-  constructor(private store: StoreService, public resource: ResourceService) {}
+  constructor(private storeService: StoreService, public resource: ResourceService) {}
 
   ngOnInit(): void {
-    this.store.cryptoList$.subscribe((result) => {
-      if (!result) return;
+    this.storeService.cryptoList$.subscribe((result) => {
       this.cryptoList = result.map((el: CryptoItem, i: number) => {
         return {
           position: i + 1,

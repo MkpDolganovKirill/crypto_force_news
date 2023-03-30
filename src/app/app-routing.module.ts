@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CryptoNewsComponent } from "./pages/crypto-news/crypto-news.component";
-import { CryptoRatesComponent } from "./pages/crypto-rates/crypto-rates.component";
-import { CalculatorComponent } from "./pages/calculator/calculator.component";
-import { EducationComponent } from "./pages/education/education.component";
-import { AboutComponent } from "./pages/about/about.component";
+import { CryptoRatesComponent } from "@pages/crypto-rates/crypto-rates.component";
+import { EducationComponent } from "@pages/education/education.component";
 
 const routes: Routes = [
   {
@@ -14,23 +11,23 @@ const routes: Routes = [
   },
   {
     path: 'news',
-    component: CryptoNewsComponent,
+    loadChildren: () => import('@pages/crypto-news/crypto-news.module').then((m) => m.CryptoNewsModule),
   },
   {
     path: 'rates',
-    component: CryptoRatesComponent
+    loadChildren: () => import('@pages/crypto-rates/crypto-rates.module').then((m) => m.CryptoRatesModule),
   },
   {
     path: 'calculator',
-    component: CalculatorComponent
+    loadChildren: () => import('@pages/calculator/calculator.module').then(m => m.CalculatorModule),
   },
   {
     path: 'education',
-    component: EducationComponent,
+    loadChildren: () => import('@pages/education/education.module').then(m => m.EducationModule),
   },
   {
     path: 'about',
-    component: AboutComponent,
+    loadChildren: () => import('@pages/about/about.module').then(m => m.AboutModule),
   },
 ];
 

@@ -8,7 +8,6 @@ export class GetDatePipe implements PipeTransform {
 
   transform(value: Date, ...args: unknown[]): unknown {
     return this.months[value.getMonth()] + ' ' + value.getDate();
-
   }
 
 }

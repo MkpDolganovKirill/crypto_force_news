@@ -5,7 +5,7 @@
       <h2 class="head-text">{{ headText.COUNT }}</h2>
       <h2 class="head-text">{{ headText.SUM }}</h2>
     </div>
-    <div class="element" *ngFor="let elem of fieldsArray; let i = index">
+    <div id="dataLine" class="element" *ngFor="let elem of fieldsArray; let i = index">
       <mat-form-field class="user-input" appearance="fill">
         <mat-label>{{ inputNames[i] || priceInputLabel }}</mat-label>
         <input matInput aria-label="State" [matAutocomplete]="auto" />
@@ -17,6 +17,8 @@
             [(ngModel)]="elem[0]"
             ngDefaultControl
           >
+            <!--          convertStringToNumber can be pipe -->
+
             <img [src]="resource.getImageLink(item.cap_id)" height="20" />
             <span>{{ item.name }}</span
             >{{ searchField.SEPARATOR }}
