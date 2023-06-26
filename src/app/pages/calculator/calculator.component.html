@@ -9,29 +9,16 @@
       <h2 class="head-text">{{ headText.SUM }}</h2>
     </div>
     <div class="element" *ngFor="let elem of fieldsArray; let i = index">
-      <mat-form-field class="user-input" appearance="fill">
-        <mat-label>{{ inputNames[i] || priceInputLabel }}</mat-label>
-        <input matInput aria-label="State" [matAutocomplete]="auto" />
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option
-            (onSelectionChange)="selectCoin(i, item.name, $event)"
-            *ngFor="let item of cryptoList"
-            [value]="item.quote.USD.price | fixed : 2 | toNumber"
+        <mat-form-field class="user-input" appearance="fill">
+          <input
+            matInput
+            class="input-crypto"
+            type="number"
             [(ngModel)]="elem[0]"
-            ngDefaultControl
-          >
-            <img
-              [src]="item.cap_id | toLink"
-              alt="coin logo"
-              height="20"
-              draggable="false"
-            />
-            <span> {{ item.name }}</span>
-            {{ searchField.SEPARATOR }}
-            <small>${{ item.quote.USD.price | fixed : 2 }} </small>
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
+            (change)="refreshValues()"
+            [pattern]="numberPattern"
+          />
+        </mat-form-field>
       <mat-form-field class="user-input" appearance="fill">
         <input
           matInput
@@ -61,6 +48,9 @@
     </button>
     <button mat-raised-button color="warn" (click)="removeLastField()">
       {{ tableButtonText.REMOVE_FIELD }}
+    </button>
+    <button mat-raised-button (click)="refreshValues()">
+      {{ tableButtonText.CALCULATE }}
     </button>
   </div>
 </div>

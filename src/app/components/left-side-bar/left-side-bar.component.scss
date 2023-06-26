@@ -205,6 +205,50 @@
   }
 }
 
+@media screen and (max-width: 1400px) {
+  .container {
+    .logo {
+      h2 {
+        font-size: 1.2rem;
+      }
+    }
+    .menu {
+      .account {
+        .username {
+          h2 {
+            font-size: 1rem;
+          }
+          .activity-status {
+            .online-status {
+              span {
+                font-size: 0.8rem;
+              }
+            }
+          }
+        }
+      }
+      .top-coins {
+        .top-coins-block {
+          .list {
+            .coin {
+              img {
+                width: 30px;
+                height: 30px;
+              }
+              span {
+                font-size: 0.8rem;
+              }
+              small {
+                font-size: 0.8rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1280px) {
   .container {
     .logo {

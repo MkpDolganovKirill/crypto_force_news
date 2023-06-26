@@ -8,6 +8,7 @@ enum HeadText {
 enum TableButtonText {
   REMOVE_FIELD = 'Удалить поле',
   ADD_FIELD = 'Добавить поле',
+  CALCULATE = 'Рассчитать',
 }
 
 enum LabelText {
